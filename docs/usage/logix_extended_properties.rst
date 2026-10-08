@@ -145,6 +145,18 @@ Rockwell directories. No blocked access was attempted. Those sessions received
 distinct challenges and generated distinct accepted completions using ordinary
 LogixDriver Large Forward Open connections of size 4000.
 
+After incorporating the current upstream master fixes, the encrypted bundle was
+also verified from a built wheel on two fresh controller connections. Those
+tests used ``-I -S``, blocked the native/optional imports above, blocked installed
+Rockwell directories, and blocked both original external credential files.
+``plc.authenticate_metadata()`` loaded the Python bundle, and each session read
+``HERE I AM WORLD`` with a distinct accepted challenge completion. No blocked
+access was attempted. This confirms that the generated module is included in
+the installed package and that runtime access does not depend on the original
+provisioning files. The final merged offline suite passed 517 tests, with one
+skipped. Wheel evidence is saved locally in
+``.extended-properties-results/bundled-wheel-success-20261008.json``.
+
 Evidence without private-key or raw setup bytes is saved locally in
 ``.extended-properties-results/standalone-first-success-20261008.json`` and
 ``standalone-isolated-success-20261008.json``. Offline tests use an independently
