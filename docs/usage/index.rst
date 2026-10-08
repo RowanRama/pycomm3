@@ -6,4 +6,5 @@ Driver Usage
 
     cipdriver
     logixdriver
+    logix_extended_properties
     slcdriver
